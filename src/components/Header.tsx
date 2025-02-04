@@ -3,7 +3,7 @@ import iconName from "../assets/images/Header/iconName.png";
 import iconProfile from "../assets/images/Header/iconProfile.png";
 import iconShop from "../assets/images/Header/iconShop.png";
 
-const Header = () => {
+function Header() {
   return (
     <div className="h-[100px] w-full px-8 flex items-center justify-between">
       <img src={iconName} alt="Furniro icon" className="w-auto h-10" />
