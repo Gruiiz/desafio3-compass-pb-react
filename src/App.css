@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+      @apply text-[16px]; /* Garante 16px base */
+    }
+  
+    body {
+      @apply font-sans font-normal; /* Aplica Poppins Medium */
+    }
+  }
