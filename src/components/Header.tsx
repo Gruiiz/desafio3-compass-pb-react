@@ -4,7 +4,7 @@ import iconShop from "../assets/icons/Header/ShopIcon.svg";
 
 function Header() {
   return (
-    <div className="h-[100px] w-full px-8 flex items-center justify-between">
+    <div className="fixed z-50 bg-white h-[100px] w-full px-8 flex items-center justify-between">
       <img src={iconName} alt="Furniro icon" className="w-auto h-10" />
 
       <nav className="flex gap-10 font-bold">
