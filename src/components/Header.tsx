@@ -1,7 +1,6 @@
-import React from "react";
-import iconName from "../assets/images/Header/iconName.png";
-import iconProfile from "../assets/images/Header/iconProfile.png";
-import iconShop from "../assets/images/Header/iconShop.png";
+import iconName from "../assets/icons/Header/TitleIcon.svg";
+import iconProfile from "../assets/icons/Header/ProfileIcon.svg";
+import iconShop from "../assets/icons/Header/ShopIcon.svg";
 
 function Header() {
   return (

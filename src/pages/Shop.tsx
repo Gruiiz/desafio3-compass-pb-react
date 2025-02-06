@@ -1,13 +1,10 @@
-import PageBanner from '../components/PageBanner';
+// pages/Shop.tsx
+
 
 const Shop = () => {
   return (
     <div>
-      <PageBanner 
-        currentPage="Shop" 
-        backgroundImage="/path-to-your-background-image.jpg" 
-      />
-      {/* Rest of your shop page content */}
+      <p>teste pagina shop</p>
     </div>
   );
 };

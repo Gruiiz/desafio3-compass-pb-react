@@ -1,6 +1,4 @@
 // components/PageBanner.tsx
-import React from 'react';
-
 interface PageBannerProps {
   currentPage: string;
   backgroundImage: string;
