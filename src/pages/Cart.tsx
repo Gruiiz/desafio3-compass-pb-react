@@ -1,4 +1,5 @@
 import PageBanner from "../components/PageBanner";
+import InfoBanner from "../components/InfoBanner";
 
 const Cart = () => {
   return (
@@ -7,6 +8,7 @@ const Cart = () => {
       currentPage="Cart"
       backgroundImage="/src/assets/images/bgteste.png"
       />
+      <InfoBanner/>
     </div>
   );
 };

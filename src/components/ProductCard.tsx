@@ -70,13 +70,13 @@ const ProductCard: React.FC<ProductProps> = ({
         <div className="flex flex-row items-center justify-center gap-[20px] w-[252px] h-[24px]">
           {/* Share */}
           <button className="flex items-center gap-[8px] text-white font-poppins font-semibold text-[16px] leading-[24px]">
-            <img src="/src/assets/icons/shareicon.svg" alt="Share Icon" className="w-[16px] h-[16px]" />
+            <img src="/src/assets/icons/ProductCard/shareicon.svg" alt="Share Icon" className="w-[16px] h-[16px]" />
             Share
           </button>
 
           {/* Compare */}
           <button className="flex items-center gap-[8px] text-white font-poppins font-semibold text-[16px] leading-[24px]">
-            <img src="/src/assets/icons/compareicon.svg" alt="Compare Icon" className="w-[16px] h-[16px]" />
+            <img src="/src/assets/icons/ProductCard/compareicon.svg" alt="Compare Icon" className="w-[16px] h-[16px]" />
             Compare
           </button>
 

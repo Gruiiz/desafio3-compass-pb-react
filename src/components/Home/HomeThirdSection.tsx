@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import ProductCard from "../ProductCard"; // Certifique-se de ajustar o caminho conforme necessário
-
+import { useNavigate } from "react-router-dom";
+import ProductCard from "../ProductCard";
 
 interface Product {
   name: string;
@@ -15,12 +15,13 @@ interface Product {
 const HomeThirdSection: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [visibleRows, setVisibleRows] = useState<number>(2);
+  const navigate = useNavigate();
 
-  // Função para buscar os dados do JSON
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("/db.json"); // Caminho relativo ao arquivo JSON
+        const response = await fetch("/db.json");
         if (!response.ok) {
           throw new Error("Erro ao carregar os produtos");
         }
@@ -36,18 +37,26 @@ const HomeThirdSection: React.FC = () => {
     fetchProducts();
   }, []);
 
+  const handleShowMore = () => {
+    if (visibleRows < 4) {
+      setVisibleRows(visibleRows + 1);
+    } else {
+      navigate('/shop');
+    }
+  };
+
   if (loading) {
     return <p className="text-center text-gray-500">Carregando produtos...</p>;
   }
 
+  const visibleProducts = products.slice(0, visibleRows * 4);
+
   return (
     <section className="flex flex-col items-center py-16 bg-gray-100">
-      {/* Título da seção */}
       <h2 className="text-4xl font-bold text-gray-800 mb-12">Our Products</h2>
 
-      {/* Grid de produtos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {products.map((product) => (
+        {visibleProducts.map((product) => (
           <ProductCard
             key={product.name}
             name={product.name}
@@ -61,9 +70,11 @@ const HomeThirdSection: React.FC = () => {
         ))}
       </div>
 
-      {/* Botão "Show More" */}
-      <button className="mt-12 px-6 py-2 border border-yellow-500 text-yellow-500 font-semibold rounded hover:bg-yellow-500 hover:text-white transition">
-        Show More
+      <button 
+        className="mt-12 px-6 py-2 border border-yellow-500 text-yellow-500 font-semibold rounded hover:bg-yellow-500 hover:text-white transition"
+        onClick={handleShowMore}
+      >
+        {visibleRows < 4 ? "Show More" : "View All Products"}
       </button>
     </section>
   );

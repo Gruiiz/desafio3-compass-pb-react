@@ -53,7 +53,7 @@ function Footer() {
               {["facebook", "instagram", "twitter", "linkedin"].map((social) => (
                 <a key={social} href={`https://www.${social}.com`} target="_blank" rel="noopener noreferrer" className="w-8 h-8">
                   <div className="w-full h-full rounded-full bg-white shadow-[0px_4px_14px_rgba(0,0,0,0.15)] flex items-center justify-center">
-                    <img src={`/src/assets/icons/${social}.svg`} alt={social} className="w-3 h-3" />
+                    <img src={`/src/assets/icons/Footer/${social}.svg`} alt={social} className="w-3 h-3" />
                   </div>
                 </a>
               ))}
