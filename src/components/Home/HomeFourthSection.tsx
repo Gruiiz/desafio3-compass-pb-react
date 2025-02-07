@@ -7,7 +7,7 @@ interface CarouselImage {
   roomType: string;
 }
 
-const HomeSection4 = () => {
+const HomeFourthSection = () => {
   const [images, setImages] = useState<CarouselImage[]>([
     { id: 1, src: '/src/assets/images/Home/bedroom.png', title: 'Inner Peace', roomType: 'Bed Room' },
     { id: 2, src: '/src/assets/images/Home/living.png', title: 'Harmony', roomType: 'Living Room' },
@@ -117,4 +117,4 @@ const HomeSection4 = () => {
   );
 };
 
-export default HomeSection4;
+export default HomeFourthSection;

@@ -1,4 +1,4 @@
-const Section5 = () => {
+const HomeFifthSection = () => {
     return (
         <div className="max-w-[1440px] mx-auto px-4 h-full relative">
                 <h2 className="text-center font-poppins font-semibold text-[20px] leading-[150%] text-[#616161]">
@@ -15,4 +15,4 @@ const Section5 = () => {
     );
   };
   
-  export default Section5;
+  export default HomeFifthSection;

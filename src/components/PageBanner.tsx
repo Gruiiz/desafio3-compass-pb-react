@@ -9,7 +9,7 @@ const PageBanner: React.FC<PageBannerProps> = ({ currentPage, backgroundImage })
     <div className="relative w-full h-[316px] mt-[100px]">
       {/* Background Image with Blur */}
       <div 
-        className="absolute w-full h-full blur-sm"
+        className="absolute w-full h-full blur-[6]"
         style={{
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: 'cover',
@@ -18,15 +18,15 @@ const PageBanner: React.FC<PageBannerProps> = ({ currentPage, backgroundImage })
       />
       
       {/* Page Title */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 text-center">
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
         <h1 className="font-poppins font-medium text-5xl leading-[72px] text-black">
           {currentPage}
         </h1>
         
         {/* Navigation Path */}
         <div className="mt-2 font-poppins text-base text-black flex items-center gap-2">
-          <span className="font-medium">Home</span>
-          <span className="transform -rotate-90">›</span>
+          <a href="/" className="font-bold text-black">Home</a>
+          <span className="">›</span>
           <span className="font-light">{currentPage}</span>
         </div>
       </div>
