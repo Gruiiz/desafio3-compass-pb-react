@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ProductCard from "../ProductCard";
+import ProductCard from "../../components/ProductCard";
 
 interface Product {
   name: string;
