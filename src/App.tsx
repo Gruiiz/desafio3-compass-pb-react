@@ -10,17 +10,17 @@ import SignupPage from './pages/Signup/Singup';
 
 function App() {
   return (
-      <Routes>
-        <Route path="/" element={<Home />} index />
-        <Route path="/Shop" element={<Shop />} />
-        <Route path="/Cart" element={<Cart />} />
-        <Route path="/Checkout" element={<Checkout />} />
-        <Route path="/Contact" element={<Contact />} />
-        <Route path="/SingleProduct" element={<SingleProduct />} />
-        <Route path="/Login" element={<LoginPage />} />
-        <Route path="/Signup" element={<SignupPage />} />
-
-      </Routes>
+    <Routes>
+      <Route path="/" element={<Home />} index />
+      <Route path="/Shop" element={<Shop />} />
+      <Route path="/Cart" element={<Cart />} />
+      <Route path="/Checkout" element={<Checkout />} />
+      <Route path="/Contact" element={<Contact />} />
+      {/* Rota dinâmica para produtos individuais */}
+      <Route path="/product/:productId" element={<SingleProduct />} />
+      <Route path="/Login" element={<LoginPage />} />
+      <Route path="/Signup" element={<SignupPage />} />
+    </Routes>
   );
 }
 

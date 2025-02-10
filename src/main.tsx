@@ -8,6 +8,12 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux'; // Adicione esta importação
 import { store } from './store/store.ts'; // Ajuste o caminho conforme sua estrutura
 
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY="pk_test_Z3JhbmQtd29sZi05Ny5jbGVyay5hY2NvdW50cy5kZXYk"
+
+if (!PUBLISHABLE_KEY) {
+  throw new Error("Missing Publishable Key")
+}
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}> {/* Envolva toda a aplicação com o Provider */}
