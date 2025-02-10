@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import iconName from "../assets/icons/Header/TitleIcon.svg";
 import iconProfile from "../assets/icons/Header/ProfileIcon.svg";
 import iconShop from "../assets/icons/Header/ShopIcon.svg";
-import CartModal from './CartModal'; // Certifique-se de criar este componente
+import CartModal from './CartModal';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store/store';
 
 function Header() {
+  const cartItems = useSelector((state: RootState) => state.cart.items);
   const [isCartVisible, setIsCartVisible] = useState(false);
-  const [cartItems] = useState([]); // Você precisará gerenciar os itens do carrinho
 
   return (
     <div className="fixed z-50 bg-white h-[100px] w-full px-8 flex items-center justify-between">

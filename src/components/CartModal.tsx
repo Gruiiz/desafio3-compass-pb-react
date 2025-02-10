@@ -1,13 +1,23 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { removeItem } from '../features/cart/cartSlice';
 
 interface CartModalProps {
   isVisible: boolean;
-  items: { name: string; price: number }[];
+  items: { id: string; name: string; price: number; imageUrl: string; quantity: number }[];
   onClose: () => void;
+  onDelete?: (index: number) => void;
 }
 
 const CartModal: React.FC<CartModalProps> = ({ isVisible, items, onClose }) => {
+  const dispatch = useDispatch();
+  const subtotal = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
   if (!isVisible) return null;
+
+  const handleRemove = (id: string) => {
+    dispatch(removeItem(id));
+  };
 
   return (
     <div 
@@ -26,32 +36,55 @@ const CartModal: React.FC<CartModalProps> = ({ isVisible, items, onClose }) => {
             &times;
           </button>
         </div>
-        <div className="pt-4 border-t">
-          <div className="flex-grow">
-            {items.length === 0 ? (
-              <p className="text-sm">Seu carrinho está vazio</p>
-            ) : (
-              <ul>
-                {items.map((item, index) => (
-                  <li key={index} className="mb-2 text-sm">
-                    {item.name} - R$ {item.price}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+
+        <div className="pt-4 border-t flex-grow overflow-y-auto">
+          {items.length === 0 ? (
+            <p className="text-sm">Seu carrinho está vazio</p>
+          ) : (
+            <ul>
+              {items.map((item) => (
+                <div key={item.id} className="flex items-center justify-between mb-4">
+                  <div className="flex items-center flex-grow">
+                    <img 
+                      src={item.imageUrl} 
+                      alt={item.name}
+                      className="w-12 h-12 object-cover rounded-md mr-4"
+                    />
+                    <div className="flex flex-col">
+                      <p className="text-sm font-medium">{item.name}</p>
+                      <p className="text-xs text-gray-500">{item.quantity} x Rp {item.price.toLocaleString()}</p>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => handleRemove(item.id)}
+                    className="text-red-500 hover:text-red-700 ml-4"
+                  >
+                    x
+                  </button>
+                </div>
+              ))}
+            </ul>
+          )}
         </div>
-        <div className="mt-auto pt-4 border-t">
-          <div className="flex justify-between space-x-2">
-            <button className="flex-1 bg-white text-black border border-black py-2 px-4 rounded-2xl hover:bg-gray-300">
-              Cart
-            </button>
-            <button className="flex-1 bg-white text-black py-2 border border-black px-4 rounded-2xl hover:bg-gray-300">
-              Checkout
-            </button>
-            <button className="flex-1 bg-white text-black py-2 border border-black px-4 rounded-2xl hover:bg-gray-300">
-              Comparison
-            </button>
+
+        <div className="mt-auto pt-4">
+          <div className="flex justify-between mb-4">
+            <span className="font-semibold">Subtotal:</span>
+            <span className="font-semibold">Rp {subtotal.toLocaleString()}</span>
+          </div>
+
+          <div className="border-t pt-4">
+            <div className="flex justify-between space-x-2">
+              <button className="flex-1 bg-white text-black border border-black py-2 px-4 rounded-2xl hover:bg-gray-300">
+                Cart
+              </button>
+              <button className="flex-1 bg-white text-black border border-black py-2 px-4 rounded-2xl hover:bg-gray-300">
+                Checkout
+              </button>
+              <button className="flex-1 bg-white text-black border border-black py-2 px-4 rounded-2xl hover:bg-gray-300">
+                Comparison
+              </button>
+            </div>
           </div>
         </div>
       </div>

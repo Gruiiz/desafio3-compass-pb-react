@@ -23,7 +23,7 @@ const ProductGrid: React.FC = () => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const response = await fetch("/db.json");
+        const response = await fetch("http://localhost:3001/produtos");
         const data = await response.json();
         setProducts(data);
       } catch (error) {

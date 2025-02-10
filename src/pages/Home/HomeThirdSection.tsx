@@ -21,7 +21,7 @@ const HomeThirdSection: React.FC = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("/db.json");
+        const response = await fetch("http://localhost:3001/produtos");
         if (!response.ok) {
           throw new Error("Erro ao carregar os produtos");
         }
