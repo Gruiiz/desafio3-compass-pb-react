@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useClerk, useSession } from '@clerk/clerk-react';
+import { useNavigate } from 'react-router-dom';
 import iconName from "../assets/icons/Header/TitleIcon.svg";
 import iconProfile from "../assets/icons/Header/ProfileIcon.svg";
 import iconShop from "../assets/icons/Header/ShopIcon.svg";
@@ -7,8 +9,16 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 
 function Header() {
+  const { signOut } = useClerk();
+  const { session } = useSession(); // Acessa a sessão do usuário
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const [isCartVisible, setIsCartVisible] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    signOut();
+    navigate('/'); // Redireciona para a página inicial após o logout
+  };
 
   return (
     <div className="fixed z-50 bg-white h-[100px] w-full px-8 flex items-center justify-between">
@@ -34,6 +44,16 @@ function Header() {
             onClose={() => setIsCartVisible(false)} 
           />
         </div>
+
+        {/* Botão de Logout (só aparece se o usuário estiver autenticado) */}
+        {session?.user && (
+          <button
+            onClick={handleLogout}
+            className="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600"
+          >
+            Logout
+          </button>
+        )}
       </div>
     </div>
   );

@@ -1,16 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSignUp } from "@clerk/clerk-react";
+import { useNavigate } from "react-router-dom";
+
+interface ClerkError {
+  errors?: Array<{
+    message?: string;
+  }>;
+}
 
 const SignupPage: React.FC = () => {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [errors, setErrors] = useState({
+  const { isLoaded, signUp } = useSignUp();
+  const navigate = useNavigate();
+
+  const [fullName, setFullName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [confirmPassword, setConfirmPassword] = React.useState("");
+  const [errors, setErrors] = React.useState({
     fullName: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
+  const [apiError, setApiError] = React.useState("");
 
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -25,10 +37,11 @@ const SignupPage: React.FC = () => {
     return name.trim().length > 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     let valid = true;
     const newErrors = { fullName: "", email: "", password: "", confirmPassword: "" };
+    setApiError("");
 
     if (!validateFullName(fullName)) {
       valid = false;
@@ -52,9 +65,37 @@ const SignupPage: React.FC = () => {
 
     setErrors(newErrors);
 
-    if (valid) {
-      console.log("Form submitted successfully!");
-      // Add form submission logic here
+    if (valid && isLoaded) {
+      try {
+        const [firstName, ...lastNameParts] = fullName.split(' ');
+        const lastName = lastNameParts.join(' ') || "";
+
+        await signUp.create({
+          emailAddress: email,
+          password,
+          firstName,
+          lastName,
+        });
+
+        navigate("/");
+
+      } catch (error) {
+        console.error("Erro durante o cadastro:", error);
+        
+        if (error instanceof Error) {
+          setApiError(error.message);
+        } else if (
+          typeof error === "object" &&
+          error !== null &&
+          "errors" in error &&
+          Array.isArray((error as ClerkError).errors)
+        ) {
+          const clerkError = error as ClerkError;
+          setApiError(clerkError.errors?.[0]?.message || "Erro desconhecido");
+        } else {
+          setApiError("Ocorreu um erro inesperado");
+        }
+      }
     }
   };
 
@@ -72,6 +113,8 @@ const SignupPage: React.FC = () => {
         <div className="w-full max-w-md">
           <h2 className="text-3xl font-bold text-gray-800 mb-6">Sign Up</h2>
           <form className="space-y-4" onSubmit={handleSubmit} noValidate>
+            {apiError && <p className="text-red-500 text-sm text-center mb-4">{apiError}</p>}
+
             <div>
               <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">
                 Full Name
@@ -148,6 +191,20 @@ const SignupPage: React.FC = () => {
             >
               Sign Up
             </button>
+
+            <div className="mt-6">
+              <button
+                type="button"
+                className="w-full flex items-center justify-center border border-gray-300 py-3 rounded-lg hover:bg-slate-300 transition duration-200"
+              >
+                <img
+                  src="/src/assets/icons/Login&Signup/icon-google.svg"
+                  alt="Google Icon"
+                  className="w-5 h-5 mr-2"
+                />
+                Sign up with Gmail
+              </button>
+            </div>
           </form>
         </div>
       </div>

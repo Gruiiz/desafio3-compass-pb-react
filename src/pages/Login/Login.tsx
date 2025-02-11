@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useSignIn } from "@clerk/clerk-react";
+import { useNavigate } from "react-router-dom";
 
 interface FormErrors {
   email?: string;
@@ -6,6 +8,9 @@ interface FormErrors {
 }
 
 const LoginPage: React.FC = () => {
+  const { isLoaded, signIn } = useSignIn();
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState<FormErrors>({});
@@ -29,11 +34,27 @@ const LoginPage: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validateForm()) {
       console.log("Form is valid", { email, password });
-      // Perform login logic here
+
+      if (isLoaded) {
+        try {
+          // Fazendo login com Clerk
+          await signIn.create({
+            identifier: email,
+            password,
+          });
+
+          console.log("Login bem-sucedido. Redirecionando para o checkout...");
+          navigate("/home"); // Redireciona para a página de checkout
+
+        } catch (err) {
+          console.error("Erro ao fazer login:", err);
+          setErrors({ ...errors, email: "Invalid email or password" });
+        }
+      }
     } else {
       console.log("Form is invalid");
     }

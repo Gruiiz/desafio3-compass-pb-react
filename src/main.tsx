@@ -5,27 +5,31 @@ import Header from "./components/Header.tsx";
 import Footer from "./components/Footer.tsx";
 import App from "./App.tsx";
 import { BrowserRouter } from "react-router-dom";
-import { Provider } from 'react-redux'; // Adicione esta importação
-import { store } from './store/store.ts'; // Ajuste o caminho conforme sua estrutura
+import { Provider } from 'react-redux';
+import { store } from './store/store.ts';
+import { ClerkProvider } from '@clerk/clerk-react'; // Adicione esta importação
 
-const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY="pk_test_Z3JhbmQtd29sZi05Ny5jbGVyay5hY2NvdW50cy5kZXYk"
+// Corrija a obtenção da chave
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 if (!PUBLISHABLE_KEY) {
-  throw new Error("Missing Publishable Key")
+  throw new Error("Missing Publishable Key");
 }
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Provider store={store}> {/* Envolva toda a aplicação com o Provider */}
-      <BrowserRouter>
-        <div className="flex flex-col min-h-screen">
-          <Header />
-          <main className="flex-1">
-            <App />
-          </main>
-          <Footer />
-        </div>
-      </BrowserRouter>
-    </Provider>
+    <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
+      <Provider store={store}>
+        <BrowserRouter>
+          <div className="flex flex-col min-h-screen">
+            <Header />
+            <main className="flex-1">
+              <App />
+            </main>
+            <Footer />
+          </div>
+        </BrowserRouter>
+      </Provider>
+    </ClerkProvider>
   </StrictMode>
 );
