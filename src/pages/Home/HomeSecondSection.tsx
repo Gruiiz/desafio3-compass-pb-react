@@ -1,8 +1,8 @@
 const HomeSecondSection = () => {
   const categories = [
-    { name: 'Dining', image: '/src/assets/images/Home/dining.png' },
-    { name: 'Living', image: '/src/assets/images/Home/living.png' },
-    { name: 'Bedroom', image: '/src/assets/images/Home/bedroom.png' },
+    { name: 'Dining', image: 'https://bucket-furniro-pb.s3.us-east-2.amazonaws.com/images/Home/dining.png' },
+    { name: 'Living', image: 'https://bucket-furniro-pb.s3.us-east-2.amazonaws.com/images/Home/living.png' },
+    { name: 'Bedroom', image: 'https://bucket-furniro-pb.s3.us-east-2.amazonaws.com/images/Home/bedroom.png' },
   ];
 
   return (

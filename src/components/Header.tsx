@@ -10,14 +10,14 @@ import { RootState } from '../store/store';
 
 function Header() {
   const { signOut } = useClerk();
-  const { session } = useSession(); // Acessa a sessão do usuário
+  const { session } = useSession(); 
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const [isCartVisible, setIsCartVisible] = useState(false);
   const navigate = useNavigate();
 
   const handleLogout = () => {
     signOut();
-    navigate('/'); // Redireciona para a página inicial após o logout
+    navigate('/'); 
   };
 
   return (
@@ -45,7 +45,7 @@ function Header() {
           />
         </div>
 
-        {/* Botão de Logout (só aparece se o usuário estiver autenticado) */}
+        
         {session?.user && (
           <button
             onClick={handleLogout}

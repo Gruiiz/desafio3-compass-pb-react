@@ -1,22 +1,22 @@
 const InfoBanner = () => {
   const features = [
     {
-      iconPath: '/src/assets/icons/InfoBanner/trophyicon.svg', // Substitua pelo caminho real
+      iconPath: '/src/assets/icons/InfoBanner/trophyicon.svg', 
       title: 'High Quality',
       description: 'crafted from top materials',
     },
     {
-      iconPath: '/src/assets/icons/InfoBanner/guaranteeicon.svg', // Substitua pelo caminho real
+      iconPath: '/src/assets/icons/InfoBanner/guaranteeicon.svg', 
       title: 'Warranty Protection',
       description: 'Over 2 years',
     },
     {
-      iconPath: '/src/assets/icons/InfoBanner/shippingicon.svg', // Substitua pelo caminho real
+      iconPath: '/src/assets/icons/InfoBanner/shippingicon.svg', 
       title: 'Free Shipping',
       description: 'Order over 150 $',
     },
     {
-      iconPath: '/src/assets/icons/InfoBanner/customersupporticon.svg', // Substitua pelo caminho real
+      iconPath: '/src/assets/icons/InfoBanner/customersupporticon.svg', 
       title: '24 / 7 Support',
       description: 'Dedicated support',
     },

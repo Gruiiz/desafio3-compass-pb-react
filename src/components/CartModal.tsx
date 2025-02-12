@@ -39,7 +39,7 @@ const CartModal: React.FC<CartModalProps> = ({ isVisible, items, onClose }) => {
 
         <div className="pt-4 border-t flex-grow overflow-y-auto">
           {items.length === 0 ? (
-            <p className="text-sm">Seu carrinho está vazio</p>
+            <p className="text-sm">Your cart is empty</p>
           ) : (
             <ul>
               {items.map((item) => (

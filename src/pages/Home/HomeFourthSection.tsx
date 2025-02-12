@@ -9,10 +9,10 @@ interface CarouselImage {
 
 const HomeFourthSection = () => {
   const [images, setImages] = useState<CarouselImage[]>([
-    { id: 1, src: '/src/assets/images/Home/bedroom.png', title: 'Inner Peace', roomType: 'Bed Room' },
-    { id: 2, src: '/src/assets/images/Home/living.png', title: 'Harmony', roomType: 'Living Room' },
-    { id: 3, src: '/src/assets/images/Home/dining.png', title: 'Elegance', roomType: 'Dining Room' },
-    { id: 4, src: '/src/assets/images/Home/office.png', title: 'Focus', roomType: 'Office' },
+    { id: 1, src: 'https://bucket-furniro-pb.s3.us-east-2.amazonaws.com/images/Home/bedroom.png', title: 'Inner Peace', roomType: 'Bed Room' },
+    { id: 2, src: 'https://bucket-furniro-pb.s3.us-east-2.amazonaws.com/images/Home/living.png', title: 'Harmony', roomType: 'Living Room' },
+    { id: 3, src: 'https://bucket-furniro-pb.s3.us-east-2.amazonaws.com/images/Home/dining.png', title: 'Elegance', roomType: 'Dining Room' },
+    { id: 4, src: 'https://bucket-furniro-pb.s3.us-east-2.amazonaws.com/images/Home/Gillde+Mag+-+Inspiration+%26+Productivity+for+Everyone.jpg', title: 'Focus', roomType: 'Office' },
   ]);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [activeImageId, setActiveImageId] = useState(1);

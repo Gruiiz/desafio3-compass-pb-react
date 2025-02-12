@@ -80,7 +80,7 @@ const SignupPage: React.FC = () => {
         navigate("/");
 
       } catch (error) {
-        console.error("Erro durante o cadastro:", error);
+        
         
         if (error instanceof Error) {
           setApiError(error.message);
@@ -91,9 +91,9 @@ const SignupPage: React.FC = () => {
           Array.isArray((error as ClerkError).errors)
         ) {
           const clerkError = error as ClerkError;
-          setApiError(clerkError.errors?.[0]?.message || "Erro desconhecido");
+          setApiError(clerkError.errors?.[0]?.message || "");
         } else {
-          setApiError("Ocorreu um erro inesperado");
+          setApiError("");
         }
       }
     }
@@ -103,7 +103,7 @@ const SignupPage: React.FC = () => {
     <div className="min-h-screen flex pt-[100px]">
       <div className="bg-gray-100 flex items-center justify-center mx-auto">
         <img
-          src="/src/assets/images/Home/s1.bg.image.png"
+          src="https://bucket-furniro-pb.s3.us-east-2.amazonaws.com/images/Home/s1.bg.image.png"
           alt="Signup Illustration"
           className="w-full h-auto object-contain"
         />

@@ -4,7 +4,7 @@ const SpSecondSection: React.FC = () => {
   return (
     <div className="relative w-full bg-white">
       <div className="max-w-screen-xl mx-auto px-4 py-12">
-        {/* Navegação entre abas */}
+       
         <div className="flex justify-center space-x-8 mb-8">
           <button className="text-black font-semibold pb-2">
             Description
@@ -12,7 +12,7 @@ const SpSecondSection: React.FC = () => {
           <button className="text-gray-500 pb-2">Additional Information</button>
         </div>
 
-        {/* Descrição */}
+        
         <div className="w-[1026px] h-[174px] text-left mb-12 mx-auto">
           <p className="text-gray-700 leading-relaxed">
             Embodying the raw, wayward spirit of rock ‘n’ roll, the Kilburn portable active stereo speaker takes the unmistakable look and sound of Marshall, unplugs the chords, and takes the show on the road.
@@ -22,15 +22,14 @@ const SpSecondSection: React.FC = () => {
           </p>
         </div>
 
-      {/* Imagens */}
       <div className="flex justify-center gap-8 px-8 mx-auto mt-[100px]">
         <img
-          src="/src/assets/images/Home/bedroom.png"
+          src="https://bucket-furniro-pb.s3.us-east-2.amazonaws.com/images/Group+107.png"
           alt="Image 1"
           className="w-[605px] h-[348px] object-cover"
         />
         <img
-          src="/src/assets/images/Home/bedroom.png"
+          src="https://bucket-furniro-pb.s3.us-east-2.amazonaws.com/images/Group+106.png"
           alt="Image 2"
           className="w-[605px] h-[348px] object-cover"
         />

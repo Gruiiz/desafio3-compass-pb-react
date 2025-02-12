@@ -6,7 +6,7 @@ const HomeFirstSection = () => {
           
           <div 
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/src/assets/images/Home/s1.bg.image.png')" }}
+            style={{ backgroundImage: "url(https://bucket-furniro-pb.s3.us-east-2.amazonaws.com/images/Home/s1.bg.image.png)" }}
           />
   
           <div className="relative w-full max-w-[643px] ml-auto mr-[58px] bg-[#FFF3E3] rounded-[10px] p-[62px]">

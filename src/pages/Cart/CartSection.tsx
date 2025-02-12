@@ -4,7 +4,7 @@ const CartSection: React.FC = () => {
   return (
     <div className="w-full bg-white py-10 px-4">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8">
-        {/* Tabela de Produtos */}
+        
         <div className="w-[817px] h-[215px] flex-1 bg-gray-100 p-6 rounded-lg shadow-md">
           <div className="bg-[#F9F1E7] grid grid-cols-4 gap-4 pb-4 font-semibold text-center">
             <span className="mt-4 ml-[75px]">Product</span>
@@ -13,10 +13,10 @@ const CartSection: React.FC = () => {
             <span className="mt-4 -ml-[100px]">Subtotal</span>
           </div>
           
-          {/* Item do Carrinho */}
+         
           <div className="grid grid-cols-4 gap-4 items-center py-4 mt-4">
             <div className="flex items-center gap-4">
-              {/* Container da Imagem */}
+              
               <div className="w-20 h-20 bg-gray-300 rounded-lg overflow-hidden">
                 <img 
                   src="/src/assets/images/Home/bedroom.png"
@@ -37,7 +37,7 @@ const CartSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Resumo do Carrinho */}
+        
         <div className="w-[393px] h-[390px] bg-[#F9F1E7] p-6 rounded-lg shadow-md text-center">
           <h2 className="text-2xl font-semibold pb-4">Cart Totals</h2>
           <div className="flex justify-between mt-10 text-center">

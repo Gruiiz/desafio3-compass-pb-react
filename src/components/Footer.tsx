@@ -5,7 +5,7 @@ function Footer() {
   const [error, setError] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
 
-  // Função de validação de e-mail com regex
+  
   const validateEmail = (email: string) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
@@ -24,12 +24,12 @@ function Footer() {
       return;
     }
 
-    // Se passar na validação
+    
     setError('');
     setIsSubscribed(true);
-    setEmail(''); // Limpa o campo
+    setEmail(''); 
 
-    // Reseta a mensagem após 3 segundos
+    
     setTimeout(() => {
       setIsSubscribed(false);
     }, 3000);
@@ -40,7 +40,7 @@ function Footer() {
     <footer className="w-full bg-white border-t border-black/[0.17] mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Left Section */}
+        
           <div>
             <h2 className="font-poppins font-bold text-2xl leading-9 text-black">Funiro.</h2>
             <p className="font-poppins text-base leading-6 text-[#9F9F9F] mt-4">
@@ -48,7 +48,7 @@ function Footer() {
               <br /> FL 33134 USA
             </p>
             
-            {/* Social Media Icons */}
+            
             <div className="mt-6 flex space-x-4">
               {["facebook", "instagram", "twitter", "linkedin"].map((social) => (
                 <a key={social} href={`https://www.${social}.com`} target="_blank" rel="noopener noreferrer" className="w-8 h-8">
@@ -60,7 +60,7 @@ function Footer() {
             </div>
           </div>
           
-          {/* Links Section */}
+         
           <div>
             <h3 className="font-poppins font-medium text-base text-[#9F9F9F]">Links</h3>
             <ul className="mt-4 space-y-4">
@@ -74,7 +74,7 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Help Section */}
+         
           <div>
             <h3 className="font-poppins font-medium text-base text-[#9F9F9F]">Help</h3>
             <ul className="mt-4 space-y-4">
@@ -88,7 +88,7 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter Section */}
+          
           <div>
             <h3 className="font-poppins font-medium text-base text-[#9F9F9F]">Newsletter</h3>
             <form onSubmit={handleSubmit} className="mt-4 flex flex-col gap-4">
@@ -110,7 +110,7 @@ function Footer() {
                 </button>
               </div>
               
-              {/* Mensagens de erro e sucesso */}
+             
               {error && (
                 <p className="text-red-500 text-sm mt-1">{error}</p>
               )}
@@ -123,7 +123,7 @@ function Footer() {
           </div>
         </div>
 
-        {/* Footer Bottom */}
+       
         <div className="border-t border-[#D9D9D9] mt-8 pt-8">
           <p className="font-poppins text-base text-black text-left">
             2023 furino. All rights reserved

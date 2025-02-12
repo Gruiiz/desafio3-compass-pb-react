@@ -9,7 +9,7 @@ const HomeFifthSection = () => {
                 </h3>
 
           <div>
-            <img src="/src/assets/images/Home/share.image.png" alt="" />
+            <img src="https://bucket-furniro-pb.s3.us-east-2.amazonaws.com/images/Home/share.image.png" alt="" />
           </div>
         </div>
     );

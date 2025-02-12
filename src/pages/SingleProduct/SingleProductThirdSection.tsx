@@ -46,7 +46,7 @@ const SpThirdSection: React.FC = () => {
   };
 
   if (loading) {
-    return <p className="text-center text-gray-500">Carregando produtos...</p>;
+    return <p className="text-center text-gray-500">Loading products...</p>;
   }
 
   const visibleProducts = products.slice(0, visibleRows * 2);

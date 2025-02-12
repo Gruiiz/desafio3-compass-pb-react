@@ -9,7 +9,7 @@ const CheckoutPage: React.FC = () => {
   return (
     <div className="bg-white min-h-screen flex justify-center items-center">
       <div className="container mx-auto p-6 grid grid-cols-1 lg:grid-cols-2 gap-10">
-        {/* Billing Details - Formulário mantido */}
+       
         <div className="bg-white w-[608px] h-[1714] shadow-md rounded-lg p-8">
           <h2 className="text-2xl font-semibold mb-6">Billing Details</h2>
           <form className="grid gap-4">
@@ -32,7 +32,7 @@ const CheckoutPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Restante do formulário */}
+            
             <div>
               <label className="block text-sm font-medium mt-8">
                 Company Name (Optional)
@@ -106,7 +106,7 @@ const CheckoutPage: React.FC = () => {
           </form>
         </div>
 
-        {/* Order Summary - Seção com dados dinâmicos */}
+        
         <div className="relative bg-white w-[608px] h-[789px] p-6 mt-10 shadow-md rounded-lg">
           <div className="flex justify-between items-center mb-6 mt-20">
             <h2 className="text-xl font-medium text-black">Product</h2>
@@ -136,7 +136,7 @@ const CheckoutPage: React.FC = () => {
             <p className="text-lg font-bold text-[#B88E2F]">Rp {subtotal.toLocaleString()}</p>
           </div>
 
-          {/* Seção de pagamento */}
+          
           <div className="space-y-6">
             <div>
               <label className="flex items-center space-x-3">
@@ -154,7 +154,7 @@ const CheckoutPage: React.FC = () => {
               </p>
             </div>
 
-            {/* Outros métodos de pagamento */}
+            
             <label className="flex items-center space-x-3">
               <input
                 type="radio"

@@ -46,7 +46,7 @@ const ContactPage: React.FC = () => {
       return;
     }
 
-    // Simular envio do formulário
+    
     setErrors({ name: '', email: '', message: '' });
     setIsSubmitted(true);
     setTimeout(() => setIsSubmitted(false), 3000);
@@ -67,7 +67,7 @@ const ContactPage: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2">
-          {/* Contact Information */}
+          
           <div className="space-y-8">
             <div className="bg-white p-8 rounded-lg">
               <h2 className="text-2xl font-medium text-gray-900 mb-2">Address</h2>
@@ -89,7 +89,7 @@ const ContactPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Contact Form */}
+          
           <div className="bg-white p-8 rounded-lg">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>

@@ -41,17 +41,17 @@ const LoginPage: React.FC = () => {
 
       if (isLoaded) {
         try {
-          // Fazendo login com Clerk
+          
           await signIn.create({
             identifier: email,
             password,
           });
 
-          console.log("Login bem-sucedido. Redirecionando para o checkout...");
-          navigate("/home"); // Redireciona para a página de checkout
+          
+          navigate("/home"); 
 
         } catch (err) {
-          console.error("Erro ao fazer login:", err);
+          console.error("Login error", err);
           setErrors({ ...errors, email: "Invalid email or password" });
         }
       }
@@ -64,7 +64,7 @@ const LoginPage: React.FC = () => {
     <div className="min-h-screen flex pt-[100px]">
       <div className="bg-gray-100 flex items-center justify-center mx-auto">
         <img
-          src="/src/assets/images/Home/s1.bg.image.png"
+          src="https://bucket-furniro-pb.s3.us-east-2.amazonaws.com/images/Home/s1.bg.image.png"
           alt="Login Illustration"
           className="w-full h-auto object-contain"
         />

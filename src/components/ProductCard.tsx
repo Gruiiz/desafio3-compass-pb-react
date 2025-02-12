@@ -58,14 +58,14 @@ const ProductCard: React.FC<ProductProps> = ({
       className="relative w-[285px] h-[446px] bg-gray-100 rounded-lg overflow-hidden shadow-md group cursor-pointer" 
       onClick={handleCardClick}
     >
-      {/* Imagem do produto */}
+      
       <img
         src={imageUrl}
         alt={name}
         className="w-full h-[301px] object-cover"
       />
 
-      {/* Selos */}
+      
       {discountPercentage && (
         <div className="absolute top-4 right-4 bg-red-500 text-white text-sm font-medium w-12 h-12 flex items-center justify-center rounded-full">
           -{discountPercentage}%
@@ -77,7 +77,7 @@ const ProductCard: React.FC<ProductProps> = ({
         </div>
       )}
 
-      {/* Informações do produto */}
+      
       <div className="p-4">
         <h3 className="text-lg font-semibold text-gray-800">{name}</h3>
         <p className="text-sm text-gray-500">{description}</p>
@@ -91,7 +91,7 @@ const ProductCard: React.FC<ProductProps> = ({
         </div>
       </div>
 
-      {/* Hover actions */}
+      
       <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-y-4">
         <button 
           className="bg-white text-orange-500 font-semibold py-2 px-4 rounded-md"
@@ -100,7 +100,7 @@ const ProductCard: React.FC<ProductProps> = ({
           Add to cart
         </button>
 
-        {/* Botões secundários */}
+      
         <div className="flex flex-row items-center justify-center gap-[20px] w-[252px] h-[24px]">
           <button 
             className="flex items-center gap-[8px] text-white font-poppins font-semibold text-[16px] leading-[24px]"
@@ -125,7 +125,7 @@ const ProductCard: React.FC<ProductProps> = ({
             }}
             className="flex items-center gap-[8px]"
           >
-            {/* SVG do coração */}
+            
           </button>
         </div>
       </div>

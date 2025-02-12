@@ -30,7 +30,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
 
   return (
     <div className="relative w-full max-w-screen-xl mx-auto p-6 bg-white">
-      {/* Imagens laterais */}
+   
       <div className="absolute left-0 flex flex-col space-y-4">
         {[product.imageUrl, product.imageUrl, product.imageUrl, product.imageUrl].map((img, index) => (
           <div key={index} className="w-20 h-20 bg-gray-300 rounded-lg overflow-hidden">
@@ -39,18 +39,18 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
         ))}
       </div>
 
-      {/* Conteúdo principal */}
+      
       <div className="flex flex-wrap justify-between items-start">
-        {/* Imagem principal */}
+       
         <div className="w-[423px] h-[500px] ml-[100px]">
           <div className="bg-gray-100 rounded-lg overflow-hidden">
             <img src={product.imageUrl} alt="Main Product" className="object-cover w-full h-full" />
           </div>
         </div>
 
-        {/* Informações do produto */}
+      
         <div className="w-full h-[730px] md:w-1/2 lg:w-6/12 p-4">
-          {/* Título e preço */}
+        
           <h1 className="text-3xl font-poppins mb-4">{product.name}</h1>
           <p className="text-xl text-gray-500 mb-4">
             Rp {product.price.toLocaleString()}
@@ -61,7 +61,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
             )}
           </p>
 
-          {/* Avaliação */}
+         
           <div className="flex items-center mb-4">
             {[...Array(4)].map((_, i) => (
               <span key={i} className="text-yellow-400 text-lg mr-1">★</span>
@@ -70,12 +70,12 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
             <p className="text-sm text-gray-500">(5 Customer Reviews)</p>
           </div>
 
-          {/* Descrição */}
+         
           <p className="text-sm text-gray-700 mb-6">
             {product.description}
           </p>
 
-          {/* Seleção de tamanho */}
+        
           <div className="mb-4">
             <p className="text-sm text-gray-500 mb-2 mt-8">Size</p>
             <div className="flex space-x-2">
@@ -92,7 +92,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
             </div>
           </div>
 
-          {/* Seleção de cor */}
+         
           <div className="mb-6">
             <p className="text-sm text-gray-500 mb-2 mt-8">Color</p>
             <div className="flex space-x-2">
@@ -106,7 +106,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
             </div>
           </div>
 
-          {/* Quantidade e botão adicionar ao carrinho */}
+          
           <div className="flex items-center space-x-4 mt-8">
             <div className="w-[123px] h-[64px] flex items-center border border-gray-300 rounded-2xl px-3 py-1">
               <button>-</button>
@@ -123,7 +123,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
 
           <div className="w-[605px] h-0 border-[1px] mt-16"></div>
 
-          {/* Informações adicionais */}
+        
           <ul className="text-sm text-gray-500 space-y-2 mt-10">
             <li><strong>SKU:</strong> SS001</li>
             <li><strong>Category:</strong> Sofas</li>

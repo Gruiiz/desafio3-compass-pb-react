@@ -6,17 +6,17 @@ import SpSecondSection from "./SingleProductSecondSection";
 
 const SingleProduct = () => {
   const location = useLocation();
-  const product = location.state?.product; // Recupera os dados do produto
+  const product = location.state?.product; 
 
-  // Fallback caso não haja dados
+ 
   if (!product) {
-    return <div>Produto não encontrado</div>;
+    return <div>Product not found</div>;
   }
 
   return (
     <div>
       <Bar />
-      <ProductInfo product={product} /> {/* Passa os dados para ProductInfo */}
+      <ProductInfo product={product} /> 
       <SpSecondSection />
       <SpThirdSection />
     </div>
