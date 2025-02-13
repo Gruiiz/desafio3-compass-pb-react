@@ -1,6 +1,10 @@
 import React from "react";
 
-const Bar: React.FC = () => {
+interface BarProps {
+  productName: string;
+}
+
+const Bar: React.FC<BarProps> = ({ productName }) => {
   return (
     <div className="relative w-full h-[100px] bg-[#F9F1E7] flex items-center justify-start pl-16 gap-8 mt-[100px]">
       {/* Filtro */}
@@ -15,10 +19,10 @@ const Bar: React.FC = () => {
       <div className="flex items-center gap-4">
         <div className="border border-gray-400 h-[37px]"></div>
         <span className="text-[16px] font-normal">
-          Asgaard sofa
+          {productName}
         </span>
       </div>
-  </div>
+    </div>
   );
 };
 

@@ -1,6 +1,5 @@
 import { useLocation } from "react-router-dom";
 import ProductInfo from "./SingleProductFirstSection";
-import Bar from "./SingleProductBar";
 import SpThirdSection from "./SingleProductThirdSection";
 import SpSecondSection from "./SingleProductSecondSection";
 
@@ -15,7 +14,6 @@ const SingleProduct = () => {
 
   return (
     <div>
-      <Bar />
       <ProductInfo product={product} /> 
       <SpSecondSection />
       <SpThirdSection />

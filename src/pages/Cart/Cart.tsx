@@ -75,7 +75,7 @@ const CartSection: React.FC = () => {
             <span className="text-primary font-semibold text-lg mr-[75px]">Rs. {total.toLocaleString()}</span>
           </div>
           <button className="mt-14 w-[222px] border border-black bg-[#F9F1E7] text-black py-3 rounded-lg font-semibold hover:bg-primary-dark transition-colors">
-            Check Out
+            <a href="/checkout">Check Out</a>
           </button>
         </div>
       </div>

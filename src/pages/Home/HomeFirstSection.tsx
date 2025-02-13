@@ -22,11 +22,14 @@ const HomeFirstSection = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.
             </p>
   
-            <button className="px-[72px] py-[25px] bg-[#B88E2F] hover:bg-[#a17d2a] transition-colors">
-              <span className="font-poppins font-bold text-base leading-6 uppercase text-white">
-                Buy Now
-              </span>
-            </button>
+            <a href="/shop" className="inline-block">
+              <button className="px-[72px] py-[25px] bg-[#B88E2F] hover:bg-[#a17d2a] transition-colors">
+                <span className="font-poppins font-bold text-base leading-6 uppercase text-white">
+                  Buy Now
+                </span>
+              </button>
+            </a>
+            
           </div>
         </section>
       </main>

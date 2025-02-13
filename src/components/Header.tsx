@@ -18,8 +18,14 @@ function Header() {
   const handleLogout = () => {
     signOut();
     navigate('/'); 
+
   };
 
+  const handleProfileClick = () => {
+    navigate('/login');
+
+  };
+  
   return (
     <div className="fixed z-50 bg-white h-[100px] w-full px-8 flex items-center justify-between">
       <img src={iconName} alt="Furniro icon" className="w-auto h-10" />
@@ -32,7 +38,7 @@ function Header() {
       </nav>
 
       <div className="flex items-center gap-4">
-        <img src={iconProfile} alt="Profile icon" className="w-6 h-6" />
+        <img src={iconProfile} alt="Profile icon" className="w-6 h-6" onClick={handleProfileClick} style={{ cursor: 'pointer' }} />
         <div 
           className="relative"
           onMouseEnter={() => setIsCartVisible(true)}

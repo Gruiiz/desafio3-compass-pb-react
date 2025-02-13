@@ -1,9 +1,18 @@
 import { useState, FormEvent } from 'react';
+import { Link } from 'react-router-dom';
+
 
 function Footer() {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
+
+  const links = [
+    { name: "Home", path: "/" },
+    { name: "Shop", path: "/shop" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" }
+  ];
 
   
   const validateEmail = (email: string) => {
@@ -62,17 +71,20 @@ function Footer() {
           
          
           <div>
-            <h3 className="font-poppins font-medium text-base text-[#9F9F9F]">Links</h3>
-            <ul className="mt-4 space-y-4">
-              {["Home", "Shop", "About", "Contact"].map((link) => (
-                <li key={link}>
-                <a href="#" className="font-poppins font-medium text-base text-black hover:text-gray-600 transition-colors cursor-pointer">
-                  {link}
-                </a>
-              </li>
-              ))}
-            </ul>
-          </div>
+      <h3 className="font-poppins font-medium text-base text-[#9F9F9F]">Links</h3>
+      <ul className="mt-4 space-y-4">
+        {links.map((link) => (
+          <li key={link.name}>
+            <Link 
+              to={link.path}
+              className="font-poppins font-medium text-base text-black hover:text-gray-600 transition-colors cursor-pointer"
+            >
+              {link.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
 
          
           <div>

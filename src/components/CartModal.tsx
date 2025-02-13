@@ -75,15 +75,19 @@ const CartModal: React.FC<CartModalProps> = ({ isVisible, items, onClose }) => {
 
           <div className="border-t pt-4">
             <div className="flex justify-between space-x-2">
-              <button className="flex-1 bg-white text-black border border-black py-2 px-4 rounded-2xl hover:bg-gray-300">
-                Cart
-              </button>
-              <button className="flex-1 bg-white text-black border border-black py-2 px-4 rounded-2xl hover:bg-gray-300">
-                Checkout
-              </button>
-              <button className="flex-1 bg-white text-black border border-black py-2 px-4 rounded-2xl hover:bg-gray-300">
-                Comparison
-              </button>
+              <a href="/cart" className="flex-1">
+                <button className="w-full bg-white text-black border border-black py-2 px-4 rounded-2xl hover:bg-gray-300">
+                  Cart
+                </button>
+              </a>
+              <a href="/checkout" className="flex-1">
+                <button className="w-full bg-white text-black border border-black py-2 px-4 rounded-2xl hover:bg-gray-300">
+                  Checkout
+                </button>
+              </a>
+                <button className="flex-1 bg-white text-black border border-black py-2 px-4 rounded-2xl hover:bg-gray-300">
+                  Comparison
+                </button>
             </div>
           </div>
         </div>
