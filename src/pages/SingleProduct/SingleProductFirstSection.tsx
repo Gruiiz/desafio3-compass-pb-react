@@ -123,9 +123,9 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
 
           <div className="flex items-center space-x-4 mt-8">
             <div className="w-[123px] h-[64px] flex items-center justify-between border border-gray-300 rounded-2xl px-3 py-1">
-              <button onClick={decrementQuantity} className="text-xl font-bold">-</button>
+              <button onClick={decrementQuantity} className="text-[16px] font-poppins">-</button>
               <span className="mx-3 text-lg">{quantity}</span>
-              <button onClick={incrementQuantity} className="text-xl font-bold">+</button>
+              <button onClick={incrementQuantity} className="text- font-poppins">+</button>
             </div>
             <button 
               className="w-[215px] h-[64px] px-6 py-3 border border-gray-300 text-black rounded-2xl hover:bg-yellow-500 hover:text-white transition"

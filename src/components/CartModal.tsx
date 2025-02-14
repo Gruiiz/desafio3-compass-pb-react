@@ -52,12 +52,15 @@ const CartModal: React.FC<CartModalProps> = ({ isVisible, items, onClose }) => {
                     />
                     <div className="flex flex-col">
                       <p className="text-sm font-medium">{item.name}</p>
-                      <p className="text-xs text-gray-500">{item.quantity} x Rp {item.price.toLocaleString()}</p>
+                      <p className="text-xs text-gray-500">
+                        <span className="text-black">{item.quantity} x</span>{" "}
+                        <span className="text-[#B88E2F]">Rp {item.price.toLocaleString()}</span>
+                      </p>
                     </div>
                   </div>
                   <button
                     onClick={() => handleRemove(item.id)}
-                    className="text-red-500 hover:text-red-700 ml-4"
+                    className="w-[20px] h-[20px] flex items-center justify-center text-white hover:text-black ml-4 rounded-full bg-[#9F9F9F]"
                   >
                     x
                   </button>
@@ -70,7 +73,7 @@ const CartModal: React.FC<CartModalProps> = ({ isVisible, items, onClose }) => {
         <div className="mt-auto pt-4">
           <div className="flex justify-between mb-4">
             <span className="font-semibold">Subtotal:</span>
-            <span className="font-semibold">Rp {subtotal.toLocaleString()}</span>
+            <span className="font-semibold text-[#B88E2F]">Rp {subtotal.toLocaleString()}</span>
           </div>
 
           <div className="border-t pt-4">

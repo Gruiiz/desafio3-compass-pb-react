@@ -1,50 +1,49 @@
-# React + TypeScript + Vite
+# Furniro Marketplace
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-Currently, two official plugins are available:
+**Furniro Marketplace** is a furniture e-commerce platform developed as the third project in the CompassUol React Scholarship Program. This project focuses on building a full-stack marketplace using modern web technologies.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **User Authentication**: Login and registration powered by Clerk.
+- **Product Browsing**: Shop page with product listings fetched from a `db.json` backend.
+- **Cart & Checkout**: Shopping cart functionality and checkout page using Redux for state management.
+- **Filtering & Pagination**: Filter products and paginate results for easier navigation.
+- **Contact Page**: User-friendly contact form for inquiries.
+- **Responsive Design**: Built with Tailwind CSS for seamless mobile and desktop experiences.
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🛠️ Technologies Used
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- **Frontend**: React, TypeScript, Tailwind CSS, Redux (state management)
+- **Authentication**: Clerk
+- **Backend**: JSON Server (mock API)
+- **Deployment**: AWS (EC2, S3)
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+---
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## 🚀 Installation
+
+1. Clone the repository:
+   ```bash
+   git clone [your-repository-url]
+
+2. Install dependencies:  
+    npm install
+
+💻 Usage
+1. Running Locally
+    Start the JSON Server (mock backend):
+      json-server --watch db.json --port 3001
+2. Start the React app:
+    npm start
+
+📝 Notes
+This project was developed as part of the CompassUol React Scholarship Program. The db.json file serves as a mock database for product data and user interactions.
+

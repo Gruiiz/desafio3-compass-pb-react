@@ -8,7 +8,6 @@ const CartSection: React.FC = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state: RootState) => state.cart.items);
 
-  
   const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const total = subtotal;
 
@@ -21,7 +20,7 @@ const CartSection: React.FC = () => {
     <div className="w-full bg-white py-10 px-4 pt-[100px]">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8">
         
-        <div className="w-[817px] h-[215px] flex-1 bg-gray-100 p-6 rounded-lg shadow-md">
+        <div className="w-[817px] h-[215px] flex-1 bg-gray-100 p-6 rounded-lg">
           <div className="bg-[#F9F1E7] grid grid-cols-4 gap-4 pb-4 font-semibold text-center">
             <span className="mt-4 ml-[75px]">Product</span>
             <span className="mt-4 -ml-[40px]">Price</span>
@@ -29,41 +28,45 @@ const CartSection: React.FC = () => {
             <span className="mt-4 -ml-[100px]">Subtotal</span>
           </div>
           
-         
-          {cartItems.map((item) => (
-            <div key={item.id} className="grid grid-cols-4 gap-4 items-center py-4 mt-4">
-              <div className="flex items-center gap-4">
-                <div className="w-20 h-20 bg-gray-300 rounded-lg overflow-hidden">
-                  <img 
-                    src={item.imageUrl}
-                    alt={item.name}
-                    className="w-full h-full object-cover"
-                  />
+          <div className={`overflow-y-auto ${cartItems.length > 2 ? 'max-h-[300px]' : ''}`}>
+            {cartItems.map((item) => (
+              <div key={item.id} className="grid grid-cols-4 gap-4 items-center py-4 mt-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-20 h-20 bg-gray-300 rounded-lg overflow-hidden">
+                    <img 
+                      src={item.imageUrl}
+                      alt={item.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span className="text-gray-600">{item.name}</span>
                 </div>
-                <span className="text-gray-600">{item.name}</span>
+                
+                <span className="text-gray-600 ml-[40px]">Rs. {item.price.toLocaleString()}</span>
+                <input
+                  type="number"
+                  value={item.quantity}
+                  onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
+                  className="w-[106px] border border-[#9F9F9F] text-center rounded-lg py-1 ml-[50px]"
+                />
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold">Rs. {(item.price * item.quantity).toLocaleString()}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <button 
+                    onClick={() => dispatch(removeItem(item.id))}
+                    className="text-red-500 hover:text-red-700 justify-end"
+                  >
+                    <><img src="/src/assets/icons/Cart/bin.svg" alt="" /></>
+                  </button>
+                </div>
               </div>
-              
-              <span className="text-gray-600 ml-[40px]">Rs. {item.price.toLocaleString()}</span>
-              <input
-                type="number"
-                value={item.quantity}
-                onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
-                className="w-[106px] border border-[#9F9F9F] text-center rounded-lg py-1 ml-[50px]"
-              />
-              <div className="flex items-center gap-2">
-                <span className="font-semibold">Rs. {(item.price * item.quantity).toLocaleString()}</span>
-                <button 
-                  onClick={() => dispatch(removeItem(item.id))}
-                  className="text-red-500 hover:text-red-700"
-                >
-                  ×
-                </button>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-       
         <div className="w-[393px] h-[390px] bg-[#F9F1E7] p-6 rounded-lg shadow-md text-center">
           <h2 className="text-2xl font-semibold pb-4">Cart Totals</h2>
           <div className="flex justify-between mt-10 text-center">
@@ -72,7 +75,7 @@ const CartSection: React.FC = () => {
           </div>
           <div className="flex justify-between mt-2 pt-4">
             <span className="text-gray-800 font-semibold ml-[65px]">Total</span>
-            <span className="text-primary font-semibold text-lg mr-[75px]">Rs. {total.toLocaleString()}</span>
+            <span className="text-[#B88E2F] font-semibold text-lg mr-[75px]">Rs. {total.toLocaleString()}</span>
           </div>
           <button className="mt-14 w-[222px] border border-black bg-[#F9F1E7] text-black py-3 rounded-lg font-semibold hover:bg-primary-dark transition-colors">
             <a href="/checkout">Check Out</a>
