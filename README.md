@@ -32,7 +32,7 @@
 
 1. Clone the repository:
    ```bash
-   git clone [your-repository-url]
+   git clone [https://github.com/Gruiiz/desafio3-compass-pb-react]
 
 2. Install dependencies:  
     npm install
